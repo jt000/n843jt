@@ -11,6 +11,7 @@
     "grunt-contrib-watch": "^1.1.0",
     "grunt-markdown": "^0.7.0",
     "grunt-newer": "^0.7.0",
-    "load-grunt-tasks": "^4.0.0"
+    "load-grunt-tasks": "^4.0.0",
+    "lodash": "^4.17.10"
   }
 }

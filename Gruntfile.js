@@ -13,32 +13,32 @@ module.exports = function(grunt) {
       livereload: {
         options: {
           open: true,
-          base: 'dist'
+          base: 'docs'
         }
       }
     },
     watch: {
       update: {
         files: ['src/**/*.css', 'src/**/*.md', 'src/template.html'],
-        tasks: ['newer:copy:dist', 'newer:markdown']
+        tasks: ['newer:copy:docs', 'newer:markdown']
       },
       livereload: {
         options: {
           livereload: '<%= connect.options.livereload %>'
         },
-        files: ['dist/**/*.html', 'dist/css/index.css'],
+        files: ['docs/**/*.html', 'docs/css/index.css'],
       }
     },
 
     clean: {
-      dist:  ['dist/**/*.css', 'dist/**/*.html']
+      docs:  ['docs/**/*.css', 'docs/**/*.html']
     },
     copy: {
-      dist: {
+      docs: {
         expand: true,
         cwd: 'src/',
         src: '**/*.css',
-        dest: 'dist/'
+        dest: 'docs/'
       }
     },
     markdown: {
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
             expand: true,
             cwd: 'src/',
             src: '**/*.md',
-            dest: 'dist/',
+            dest: 'docs/',
             ext: '.html'
           }
         ],
@@ -70,8 +70,8 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('build', [
-    'clean:dist', 
-    'copy:dist', 
+    'clean:docs', 
+    'copy:docs', 
     'markdown'
   ]);
 
